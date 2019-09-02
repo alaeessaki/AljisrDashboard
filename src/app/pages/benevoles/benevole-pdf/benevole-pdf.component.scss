@@ -1,0 +1,30 @@
+#content {
+    overflow: hidden;
+  margin-top: -600px;
+  width: 300mm;
+
+  .img-container {
+    width: 100%;
+
+    img {
+      width: 120px;
+    }
+  }
+
+  h1 {
+    margin-top: 100px;
+    margin-bottom: 100px !important;
+  }
+}
+
+.conroleSection{
+    overflow-y: hidden !important;
+    padding-top: 20px;
+    top: 63px;
+    bottom: 0;
+    left:0;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}

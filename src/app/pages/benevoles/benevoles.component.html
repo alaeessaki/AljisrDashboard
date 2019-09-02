@@ -1,0 +1,88 @@
+
+<div *ngIf="benevoles$ | async else loading" class="tableContainer">
+
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{i +1}} </td>
+        </ng-container>
+
+        <!-- nom Column -->
+        <ng-container matColumnDef="Nom">
+            <th mat-header-cell *matHeaderCellDef> Nom </th>
+            <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+        </ng-container>
+
+        <!-- prenom Column -->
+        <ng-container matColumnDef="Prenom">
+            <th mat-header-cell *matHeaderCellDef> Prenom </th>
+            <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+        </ng-container>
+
+        <!-- email Column -->
+        <ng-container matColumnDef="E-mail">
+            <th mat-header-cell *matHeaderCellDef> E-mail </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- Adresse Column -->
+        <ng-container matColumnDef="adresse">
+            <th mat-header-cell *matHeaderCellDef> Adresse </th>
+            <td mat-cell *matCellDef="let element"> {{element.adresse}} </td>
+        </ng-container>
+
+        <!-- telephone Column -->
+        <ng-container matColumnDef="telephone">
+            <th mat-header-cell *matHeaderCellDef> telephone </th>
+            <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+        </ng-container>
+
+        <!-- nom_association Column -->
+        <ng-container matColumnDef="nom_association">
+            <th mat-header-cell *matHeaderCellDef> Nom <br>d'association </th>
+            <td mat-cell *matCellDef="let element"> {{element.nom_association}} </td>
+        </ng-container>
+
+        <!-- nom_etablissement Column -->
+        <ng-container matColumnDef="nom_etablissement">
+            <th mat-header-cell *matHeaderCellDef> Nom <br>d'etablissement </th>
+            <td mat-cell *matCellDef="let element"> {{element.nom_etablissement}} </td>
+        </ng-container>
+
+        <!-- exp_domaine_association Column -->
+        <ng-container matColumnDef="exp_assoc">
+            <th mat-header-cell *matHeaderCellDef> expérience dans <br>le domaine associatif </th>
+            <td mat-cell *matCellDef="let element"> {{element.exp_domaine_association}} </td>
+        </ng-container>
+
+        <!-- changes Column -->
+        <ng-container matColumnDef="changes">
+            <th mat-header-cell *matHeaderCellDef>  </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button [matMenuTriggerFor]="menu"><mat-icon aria-hidden="false" aria-label="menu icon" >more_vert</mat-icon></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item  routerLink="/modBenevole/{{element._id}}">Modifier</button>
+                    <button mat-menu-item (click)="supprimer(element)">Supprimer</button>
+                    <button mat-menu-item routerLink="/imprimerBenevole/{{element._id}}">Imprimer</button>
+                </mat-menu>
+            </td>
+        </ng-container>
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
+
+<ng-template #loading>
+    <span>The data is loading...</span>
+</ng-template>

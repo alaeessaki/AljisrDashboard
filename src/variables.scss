@@ -1,0 +1,13 @@
+@function color($color-name) {
+  @return map-get($colors, $color-name)
+};
+
+$font-family: 'Open Sans';
+$secondary-font: 'Roboto';
+$paragraph-font: 'Poppins';
+
+$colors :(
+  primary: #22C0FF,
+  secondary: rgb(126, 126, 126),
+  reverse: #FFFFFF,
+);

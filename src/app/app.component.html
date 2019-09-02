@@ -1,0 +1,72 @@
+<mat-toolbar class="d-flex justify-content-between">
+  <div class="left-cont d-flex align-items-center">
+    <h1><span class="logo-spec">Al jisr</span> dashboard</h1>
+    <button mat-icon-button (click)="menuToggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="right-cont">
+    <button mat-icon-button [matMenuTriggerFor]="notifMenu">
+      <mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+    </button>
+
+    <mat-menu #notifMenu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+    <button mat-icon-button [matMenuTriggerFor]="msgMenu">
+      <mat-icon matBadge="7" matBadgeColor="warn">email</mat-icon>
+    </button>
+
+    <mat-menu #msgMenu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+    <button mat-icon-button [matMenuTriggerFor]="account">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #account="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<div class="body-cont d-flex flex-wrap-nowrap">
+  <div class="sidenav">
+    <div class="item d-flex align-items-center" routerLink="dashboard">
+      <a routerLink="dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>data_usage</mat-icon> <span class="linkItem">tableau de bord</span>
+      </a>
+    </div>
+    <div class="item d-flex align-items-center">
+      <a routerLink="benevoles" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>pan_tool</mat-icon> <span class="linkItem">Les bénévoles</span>
+      </a>
+    </div>
+    <div class="item d-flex align-items-center">
+      <a routerLink="subscribers" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>thumb_up</mat-icon> <span class="linkItem">les abonnés</span>
+      </a>
+    </div>
+    <div class="item d-flex align-items-center flex-column">
+      <a (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="eventsCollapse">
+        <mat-icon>date_range</mat-icon> <span class="linkItem">Les événements</span>
+      </a>
+      <div id="eventsCollapse" [collapse]="isCollapsed" [isAnimated]="true">
+        <div class="sublinkContainer d-flex flex-column">
+          <a routerLink="evenements/eventslist" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact: true}">Liste des évenements</a>
+          <a routerLink="evenements/addEvent" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact: true}">Ajouter un évenement</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="containt-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

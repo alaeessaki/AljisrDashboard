@@ -1,0 +1,94 @@
+@import '../variables.scss';
+
+mat-toolbar {
+  position: fixed;
+  z-index: 2;
+  background-color: black;
+  color: color(reverse);
+
+  .left-cont {
+    h1 {
+      font-size: 19px;
+      padding-top: 1px;
+      padding-right: 9px;
+      padding-left: 20px;
+
+      .logo-spec {
+        color: color(primary);
+      }
+    }
+  }
+
+  .right-cont {
+    button {
+      mat-icon {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.body-cont {
+  height: 100%;
+  width: 100%;
+
+  .sidenav {
+    position: fixed;
+    z-index: 1;
+    padding-top: 80px;
+    height: 100%;
+    width: 200px;
+    background-color: black;
+    transition: .5s;
+
+    .item {
+      cursor: pointer;
+      color: color(reverse);
+      background-color: color(secondary);
+      width: 100%;
+      transition: .5s;
+
+      a {
+        text-decoration: none;
+        color: color(reverse);
+        font-size: 14px;
+        padding-bottom: 3px;
+        width: 100%;
+        padding: 12px 18px;
+        mat-icon {
+          margin-right: 10px;
+          font-size: 15px;
+          text-align: center;
+          padding-top: 4px;
+          transition: 0.5s;
+          position: relative;
+          top: 2px;
+        }
+      }
+
+      .active-link {
+        background-color: color(primary);
+      }
+    }
+  }
+
+  .containt-wrapper {
+    position: relative;
+    margin-left: 220px;
+    height: 100%;
+    width: 100%;
+    padding-top: 80px;
+    transition: .5s;
+  }
+}
+
+button {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+#eventsCollapse{
+  width: 100%;
+  transition: 0.5s;
+}

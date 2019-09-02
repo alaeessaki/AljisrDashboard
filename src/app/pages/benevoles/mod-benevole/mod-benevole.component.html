@@ -1,0 +1,107 @@
+<div *ngIf="benevole$ | async else loading" class="wrapper">
+    <form *ngFor="let benevole of benevole$ | async">
+        <div class="doubleForm d-flex flex-row align-items-center">
+            <div class="singleForm d-flex flex-row align-items-center mr-5">
+                <div class="title mr-3">
+                    <strong>Nom:</strong>
+                </div>
+                <div class="formContainer">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nom</mat-label>
+                        <input matInput [(ngModel)]="benevole.nom" name="nom" #nom>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="singleForm d-flex flex-row align-items-center mr-5">
+                <div class="title mr-3">
+                    <strong>Prenom:</strong>
+                </div>
+                <div class="formContainer">
+                    <mat-form-field appearance="outline">
+                        <mat-label>prenom</mat-label>
+                        <input matInput [(ngModel)]="benevole.prenom" name="prenom" #prenom>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="singleForm d-flex flex-row align-items-center mr-5">
+            <div class="title mr-3">
+                <strong>adresse:</strong>
+            </div>
+            <div class="formContainer">
+                <mat-form-field appearance="outline">
+                    <mat-label>adresse</mat-label>
+                    <textarea matInput [(ngModel)]="benevole.adresse" name="adresse" #adresse></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="doubleForm d-flex flex-row align-items-center">
+            <div class="singleForm d-flex flex-row align-items-center mr-5">
+                <div class="title mr-3">
+                    <strong>email:</strong>
+                </div>
+                <div class="formContainer">
+                    <mat-form-field appearance="outline">
+                        <mat-label>email</mat-label>
+                        <input matInput [(ngModel)]="benevole.email" name="email" #email>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="singleForm d-flex flex-row align-items-center mr-5">
+                <div class="title mr-3">
+                    <strong>telephone:</strong>
+                </div>
+                <div class="formContainer">
+                    <mat-form-field appearance="outline">
+                        <mat-label>telephone</mat-label>
+                        <input matInput [(ngModel)]="benevole.telephone" name="telephone" #telephone>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="doubleForm d-flex flex-row align-items-center">
+            <div class="singleForm d-flex flex-row align-items-center mr-5">
+                <div class="title mr-3">
+                    <strong>nom d'etablissement:</strong>
+                </div>
+                <div class="formContainer">
+                    <mat-form-field appearance="outline">
+                        <mat-label>nom d'etablissement</mat-label>
+                        <input matInput [(ngModel)]="benevole.nom_etablissement" name="nom_etablissement" #nom_etablissement>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="singleForm d-flex flex-row align-items-center mr-5">
+                <div class="title mr-3">
+                    <strong>nom d'association:</strong>
+                </div>
+                <div class="formContainer">
+                    <mat-form-field appearance="outline">
+                        <mat-label>nom d'association</mat-label>
+                        <input matInput [(ngModel)]="benevole.nom_association" name="nom_association" #nom_association>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="singleForm d-flex flex-row align-items-center mr-5">
+            <div class="title mr-3">
+                <strong>experience dans le domaine associatif:</strong>
+            </div>
+            <div class="formContainer">
+                <mat-form-field appearance="outline">
+                    <mat-label>experience dans le domaine associatif</mat-label>
+                    <input matInput [(ngModel)]="benevole.exp_domaine_association" name="exp_assoc" #exp_assoc>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="buttons mt-3">
+            <button mat-flat-button routerLink="/benevoles" class="mr-3">Annuler</button>
+            <button mat-flat-button color="primary" type="submit" (click)="modifier(nom.value, prenom.value, adresse.value, email.value, telephone.value, nom_etablissement.value, nom_association.value,exp_assoc.value )">modifier</button>
+        </div>
+    </form>
+</div>
+
+<ng-template #loading>
+    wait for data ...
+</ng-template>

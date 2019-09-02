@@ -1,0 +1,57 @@
+<div *ngIf="benevole$ | async else loading">
+    <div id="content" #content *ngFor="let selectedBenevole of benevole$ | async">
+        <div class="img-container d-flex align-items-center justify-content-center mb-5">
+            <img src="../../../assets/Aljisr_logo.png">
+        </div>
+        <h1 class="text-center mb-5">Charte du bénévolat dans l’association Aljisr</h1>
+        <p>Tout bénévole accueilli et intégré dans l’Association se voit remettre la présente Charte. Elle définit le
+            cadre
+            des relations et des règles du jeu qui doivent s’instituer entre les Responsables de l’association, les
+            salariés
+            permanents et les bénévoles.
+        </p>
+        <br>
+        <br>
+        <ol>
+            <li><strong>Rappel des missions et finalités de l’association.</strong></li>
+        </ol>
+        <br>
+        <p>La mission de l’Association Aljisr est : ……
+
+            L’Association Aljisr remplit cette mission d’intérêt général :
+        </p>
+        <br>
+        <ul>
+            <li>de façon transparente à l’égard de ses adhérents, de ses bénéficiaires, de ses financeurs, de ses
+                salariés
+                permanents et de ses bénévoles,</li>
+            <li>ans le respect des règles démocratiques de la loi de loi de 1901,</li>
+            <li>en l’accompagnant de démarches d’évaluation de son utilité sociale.</li>
+        </ul>
+        <br>
+        <p>Mr <strong>{{selectedBenevole.nom}} {{selectedBenevole.prenom}}</strong> de l'association:
+            {{selectedBenevole.nom_association}} a bénévolé pour faire des taches à l'association
+            <strong>Aljisr</strong>
+        </p>
+        <br><br><br><br><br><br><br><br><br><br>
+        <div class="signature d-flex align-items-center justify-content-between">
+            <p class="mr-5"><strong>Signature de la directrice:</strong></p>
+            <p class="ml-5"><strong>Signature de bénévole:</strong></p>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #loading>
+    wait for data ...
+</ng-template>
+
+
+<div class="conroleSection" *ngIf="benevole$ | async">
+    <div class="contentContainer" *ngFor="let selectedBenevole of benevole$ | async">
+        <p>Voulez vous imprimer le contrat de Mr <strong>{{selectedBenevole.nom}} {{selectedBenevole.prenom}}</strong> ?
+        </p>
+        <button mat-stroked-button class="mr-3" (click)="downloadPDF()">Imprimer</button>
+    </div>
+
+</div>

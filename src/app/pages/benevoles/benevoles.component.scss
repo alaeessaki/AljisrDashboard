@@ -1,0 +1,16 @@
+.buttons{
+    button{
+        margin-right: 10px;
+    }
+}
+.tableContainer{
+    width: 100%;
+    table{
+        width: 100%;
+    }
+}
+button {
+    &:focus {
+      outline: none !important;
+    }
+  }

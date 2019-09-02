@@ -1,0 +1,31 @@
+.addEventWrapper {
+  .addEventContainer {
+    padding: 0% 10% 0% 0%;
+    width: 100%;
+
+    form {
+      width: 100%;
+
+      .doubleForm {}
+    }
+  }
+
+}
+
+.singleForm {
+  width: 100%;
+
+  .title {}
+
+  .formContainer {
+    width: 100%;
+
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+}
+
+textarea{
+    height: 150px;
+}

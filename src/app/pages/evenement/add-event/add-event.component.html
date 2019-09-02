@@ -1,0 +1,77 @@
+<div class="addEventWrapper">
+    <div class="addEventContainer">
+        <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                <legend style="font-size: 18px; font-weight: bold">Title:</legend>
+                <div class="doubleForm d-flex flex-row align-items-center">
+                    <div class="singleForm d-flex flex-row align-items-center mr-5">
+                        <div class="formContainer">
+                            <mat-form-field appearance="outline">
+                                <mat-label>englais</mat-label>
+                                <input matInput formControlName="title_en">
+                                <mat-error *ngIf="eventForm.controls['title_en'].hasError('required')">
+                                    {{getTitle_enError()}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="singleForm d-flex flex-row align-items-center mr-5">
+                        <div class="formContainer">
+                            <mat-form-field appearance="outline">
+                                <mat-label>français</mat-label>
+                                <input matInput formControlName="title_fr">
+                                <mat-error *ngIf="eventForm.controls['title_fr'].hasError('required')">
+                                    {{getTitle_frError()}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="singleForm d-flex flex-row align-items-center mr-5">
+                    <div class="title mr-3">
+                        <strong>Date:</strong>
+                    </div>
+                    <div class="formContainer">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <input matInput placeholder="Choose a date" type="datetime-local" formControlName="date">
+                            <mat-error *ngIf="eventForm.controls['date'].hasError('required')">{{getDateError()}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend style="font-size: 18px; font-weight: bold">Description:</legend>
+                <div class="doubleForm d-flex flex-row align-items-center">
+                    <div class="singleForm d-flex flex-row align-items-center mr-5">
+                        <div class="formContainer">
+                            <mat-form-field appearance="outline">
+                                <mat-label>englais</mat-label>
+                                <textarea matInput formControlName="description_en"></textarea>
+                                <mat-error *ngIf="eventForm.controls['description_en'].hasError('required')">
+                                    {{getDescription_enError()}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="singleForm d-flex flex-row align-items-center mr-5">
+                        <div class="formContainer">
+                            <mat-form-field appearance="outline">
+                                <mat-label>français</mat-label>
+                                <textarea matInput formControlName="description_fr"></textarea>
+                                <mat-error *ngIf="eventForm.controls['description_fr'].hasError('required')">
+                                    {{getDescription_frError()}}</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="submitBtn mt-3 mb-5">
+                <button mat-flat-button routerLink="../eventslist" class="mr-3">Annuler</button>
+                <button mat-flat-button color="primary" type="submit">Publish</button>
+            </div>
+        </form>
+    </div>
+</div>
