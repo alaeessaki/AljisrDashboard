@@ -8,6 +8,6 @@ export class SubscribersService {
   
   constructor(private http: HttpClient) { }
   getSubscribers(){
-    return this.http.get('http://localhost:3200/api/subscribers');
+    return this.http.get('../api/subscribers');
   }
 }

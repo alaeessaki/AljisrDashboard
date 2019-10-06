@@ -10,11 +10,11 @@ export class EvenementService {
 
   // get events
   getEvents() {
-    return this._http.get('http://localhost:3200/api/events');
+    return this._http.get('../api/events');
   }
 
   getParticipants(event){
-    return this._http.get('http://localhost:3200/api/eventsParticipants/'+event)
+    return this._http.get('../api/eventsParticipants/'+event)
   }
 
   // add Event
@@ -25,7 +25,7 @@ export class EvenementService {
         'Authorization': 'my-auth-token'
       })
     };
-    return this._http.post('http://localhost:3200/api/addEvent', event, httpOptions)
+    return this._http.post('../api/addEvent', event, httpOptions)
   }
 
   // add participant
@@ -36,7 +36,7 @@ export class EvenementService {
         'Authorization': 'my-auth-token'
       })
     };
-    return this._http.post('http://localhost:3200/api/addParticipant/'+event, participant, httpOptions)
+    return this._http.post('../api/addParticipant/'+event, participant, httpOptions)
   }
 
   // modify Event
@@ -47,16 +47,16 @@ export class EvenementService {
         'Authorization': 'my-auth-token'
       })
     };
-    return this._http.put('http://localhost:3200/api/addParticipant/'+id, data, httpOptions)
+    return this._http.put('../api/addParticipant/'+id, data, httpOptions)
   }
 
   // delete Event
   deleteEvent(event){
-    return this._http.delete('http://localhost:3200/api/deleteEvent/'+event)
+    return this._http.delete('../api/deleteEvent/'+event)
   }
 
   // delete particpant from an event
   deleteParticipant(participant, event){
-    return this._http.delete('http://localhost:3200/api/deleteEventParticipant/'+event+'/'+participant)
+    return this._http.delete('../api/deleteEventParticipant/'+event+'/'+participant)
   }
 }

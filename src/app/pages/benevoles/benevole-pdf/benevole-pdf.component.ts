@@ -33,7 +33,7 @@ export class BenevolePdfComponent implements OnInit {
         format: [442 , 355 ]
       });
       doc.addImage(getImage, 'JPEG',30, 40, 300, 280),
-        doc.save('test.pdf')
+        doc.save('contrat.pdf')
       // console.log(getImage);
     })
     // const doc = new jsPdf();

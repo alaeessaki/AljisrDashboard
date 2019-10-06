@@ -1,5 +1,5 @@
 <div class="eventsWrapper d-flex flex-wrap flex-row" *ngIf="events$ | async else loading">
-    <div class="eventContainer  m-3" *ngFor="let events of (events$ | async)?.reverse()">
+    <div class="eventContainer  m-3" *ngFor="let events of events$ | async">
         <mat-card class="example-card">
             <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>

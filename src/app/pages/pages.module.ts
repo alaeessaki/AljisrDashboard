@@ -11,7 +11,7 @@ import { EventListComponent } from './evenement/event-list/event-list.component'
 import { EventParticipantComponent } from './evenement/event-participant/event-participant.component';
 
 @NgModule({
-  declarations: [BenevolesComponent, DashboardComponent, ModBenevoleComponent, BenevolePdfComponent, SubscribersComponent, EvenementComponent, AddEventComponent, EventListComponent, EventParticipantComponent],
+  declarations: [],
   imports: [
     CommonModule
   ]

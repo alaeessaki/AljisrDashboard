@@ -10,14 +10,14 @@ export class BenevolesService {
     
   }
   getdata(){
-    return this.http.get('http://localhost:3200/api/benevoles');
+    return this.http.get('../api/benevoles');
   }
   supprimerBenevole(benevole){
-    let url = 'http://localhost:3200/api/deletebenevole/'+benevole._id;
+    let url = '../api/deletebenevole/'+benevole._id;
     return this.http.delete(url);
   }
   getBenevole(id){
-    let url = 'http://localhost:3200/api/benevoles/'+id;
+    let url = '../api/benevoles/'+id;
     return this.http.get(url);
   }
   modifyBenevole(id, benevole){
@@ -27,7 +27,7 @@ export class BenevolesService {
         'Authorization': 'my-auth-token'
       })
     };
-    let url = 'http://localhost:3200/api/modifyBenevole/'+id;
+    let url = '../api/modifyBenevole/'+id;
     return this.http.put(url, benevole, httpOptions);
   }
 }
